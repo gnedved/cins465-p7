@@ -7,7 +7,7 @@
       <div class="title"><%= photo.title %></div>
       <a class="image" href="javascript:$('dialog_div').dialog('open');">
       <%= image_tag photo.image_url(:thumb).to_s %></a>
-      <div id="dialog_div" class="description">
+      <div id="dialog_div" class="description" title="Description">
         <%= photo.description %>
       </div>
 
@@ -23,7 +23,9 @@
     </div>
   <% end %>
   <br>
+<% if current_user %>
 <%= link_to "Add Photograph", new_photograph_path %>
+<% end %>
 <br>
 <br>
   <%= form_tag("/search", method: "get") do  %>

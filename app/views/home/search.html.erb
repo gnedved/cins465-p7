@@ -29,4 +29,6 @@
 <% end %>
 
 <%= link_to "All Photos", root_path %><br>
+<% if current_user %>
 <%= link_to "Add Photograph", new_photograph_path %>
+<% end %>
