@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @photograph.image %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @photograph.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @photograph.description %>
+</p>
+
+
+<%= link_to 'All Photographs', root_path %>
+<%= link_to 'Edit', edit_photograph_path(@photograph) %>
+<%= link_to 'Back', photographs_path %>
+<%= link_to 'Add Tag', new_tag_hash_path(@photograph) %>

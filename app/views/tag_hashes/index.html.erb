@@ -1,0 +1,30 @@
+<h1>Listing tag_hashes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Key</th>
+      <th>Value</th>
+      <th>Photograph</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tag_hashes.each do |tag_hash| %>
+      <tr>
+        <td><%= tag_hash.key %></td>
+        <td><%= tag_hash.value %></td>
+        <td><%= tag_hash.photograph_id %></td>
+        <td><%= link_to 'Show', tag_hash %></td>
+        <td><%= link_to 'Edit', edit_tag_hash_path(tag_hash) %></td>
+        <td><%= link_to 'Destroy', tag_hash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

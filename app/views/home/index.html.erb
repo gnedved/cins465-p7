@@ -1,0 +1,39 @@
+<h1>Photo Sharing Website</h1>
+<br>
+
+<div id="photographs">
+  <% for photo in @photographs.each %>
+    <div class="photo">
+      <a class="image" href="javascript:$('dialog_div').dialog('open');">
+      <%= image_tag photo.image_url(:thumb).to_s %></a>
+      <div class="title"><%= photo.title %></div>
+      <div id="dialog_div">
+        <p><%= photo.description %></p>
+      </div>
+
+      <div class="actions">
+        <% if current_user %>
+          <% if current_user.id == photo.user_id %>
+          <%= link_to 'Edit', edit_photograph_path(photo) %>
+          <%= link_to 'Remove', photo, :confirm => 'Are you sure?', :method => :delete %>
+          <% end %>
+        <%= link_to "Add Photograph", new_photograph_path %>
+        <% end %>
+        <%= link_to "Add Tag", new_photograph_tag_hash_path(:photograph_id => photo.id) %>
+      </div>
+    </div>
+  <% end %>
+  <br>
+  <br>
+
+<br>
+  <%= form_tag("/search", method: "get") do  %>
+  <%= label_tag(:key, "Tag:") %>
+  <%= text_field_tag(:key) %>
+<br>
+  <%= label_tag(:value, "Value:") %>
+  <%= text_field_tag(:value) %>
+<br>
+  <%= submit_tag("Search") %>
+<% end %>
+<br>
