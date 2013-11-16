@@ -1,18 +1,17 @@
-<%= link_to "All Photos", root_path %>
 
-<p><%= "successful search for key => #{@key} and value => #{@value} returned" %></p>
+<p id="notice"><%= "Searched for key=>#{@key} and value=>#{@value}" %></p>
 <br>
 <div id="photographs">
 <% if !@matching_photos %>
-  <p>No matches</p>
+  <p id="notice">No matches</p>
 <% else %>
   <% @matching_photos.each do |photo| %>
-    <div class="photo">
+    <div class="photograph">
+    <div class="title"><%= photo.title %></div>
     <a class="image" href="javascript:$('dialog_div').dialog('open');">
     <%= image_tag photo.image_url(:thumb).to_s %></a>
-    <div class="title"><%= photo.title %></div>
     <div id="dialog_div">
-      <p><%= photo.description %></p>
+      <%= photo.description %>
     </div>
     <div class="actions">
       <% if current_user %>
@@ -20,7 +19,6 @@
           <%= link_to 'Edit', edit_photograph_path(photo) %>
           <%= link_to 'Remove', photo, :confirm => 'Are you sure?', :method => :delete %>
         <% end %>
-        <%= link_to "Add Photograph", new_photograph_path %>
       <% end %>
       <%= link_to "Add Tag", new_photograph_tag_hash_path(:photograph_id => photo.id) %>
     </div>
@@ -30,4 +28,5 @@
   <% end %>
 <% end %>
 
-<%= link_to "Search Page", root_path %>
+<%= link_to "All Photos", root_path %><br>
+<%= link_to "Add Photograph", new_photograph_path %>

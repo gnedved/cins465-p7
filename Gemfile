@@ -5,7 +5,10 @@ gem 'rails', '4.0.0'
 
 # This is what gives this application the ability to attach photographs
 gem 'rmagick'
+
 gem 'carrierwave'
+
+gem 'bootstrap-sass', '2.3.2.0'
 
 # This is what provides all the user identification processes
 gem 'devise'
