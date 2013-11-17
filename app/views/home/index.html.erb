@@ -13,6 +13,7 @@
 
       <div class="actions">
         <% if current_user %>
+          <%= link_to 'View', photo %>
           <% if current_user.id == photo.user_id %>
           <%= link_to 'Edit', edit_photograph_path(photo) %>
           <%= link_to 'Remove', photo, :confirm => 'Are you sure?', :method => :delete %>
@@ -22,12 +23,14 @@
       </div>
     </div>
   <% end %>
-  <br>
-<% if current_user %>
-<%= link_to "Add Photograph", new_photograph_path %>
-<% end %>
+</div>
+  <div>
+  <% if current_user %>
+  <%= link_to "Add Photograph", new_photograph_path %>
+  <% end %>
+  </div>
 <br>
-<br>
+<div>
   <%= form_tag("/search", method: "get") do  %>
   <%= label_tag(:key, "Tag:") %>
   <%= text_field_tag(:key) %>
@@ -37,4 +40,4 @@
 <br>
   <%= submit_tag("Search") %>
 <% end %>
-<br>
+</div>

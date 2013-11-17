@@ -11,6 +11,13 @@ body {
   background-color: #FCF0F0;
 }
 
+#photographs {
+  overflow: auto;
+  margin-bottom: 100px;
+  padding: 10px 10px;
+  border: solid 2px #FCF0F0;
+}
+
 .photograph {
   border: solid 1px #CCC;
   padding: 10px 10px;

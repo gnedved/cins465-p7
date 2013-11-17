@@ -1,9 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @photograph.image %>
-</p>
+<div class="photograph">
+  <%= image_tag @photograph.image_url.to_s %>
+</div>
 
 <p>
   <strong>Title:</strong>
@@ -16,7 +15,7 @@
 </p>
 
 
-<%= link_to 'All Photographs', root_path %>
-<%= link_to 'Edit', edit_photograph_path(@photograph) %>
-<%= link_to 'Back', photographs_path %>
+<%= link_to 'All Photographs', root_path %><br>
+<%= link_to 'Edit', edit_photograph_path(@photograph) %><br>
+<%= link_to 'Back', photographs_path %><br>
 <%= link_to 'Add Tag', new_photograph_tag_hash_path(@photograph) %>

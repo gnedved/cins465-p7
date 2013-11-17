@@ -19,14 +19,15 @@
         <td><%= photograph.description %></td>
         <td><%= photograph.image %></td>
         <td><%= link_to 'Show', photograph %></td>
-        <td><%= link_to 'Edit', edit_photograph_path(photograph) %></td>
-        <td><%= link_to 'Destroy', photograph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to_if (current_user && current_user.id == photograph.user_id), 'Edit', edit_photograph_path(photograph) %></td>
+        <td><%= link_to_if (current_user && current_user.id == photograph.user_id), 'Destroy', photograph, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= link_to 'All Photographs', root_path %>
 <% if current_user %>
 <%= link_to 'New Photograph', new_photograph_path %>
 <% end %>
